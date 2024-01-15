@@ -8,6 +8,9 @@ use Illuminate\Support\Str;
 class AdminController extends Controller
 {
     
+public function AllUsers(){
+    return view('admin.users');
+}
 
 public function createUserForm()
 {
