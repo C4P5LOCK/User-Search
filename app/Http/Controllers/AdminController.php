@@ -9,7 +9,10 @@ class AdminController extends Controller
 {
     
 public function AllUsers(){
-    return view('admin.users');
+    $users = UserInfo::all();
+    return view('admin.users',[
+        'users' => $users
+    ]);
 }
 
 public function createUserForm()

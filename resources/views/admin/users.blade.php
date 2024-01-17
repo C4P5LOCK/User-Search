@@ -4,47 +4,65 @@
     <meta charset="UTF-8">
     <title>User Information</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Ensure jQuery is included -->
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Ensure jQuery is included --> --}}
 </head>
 <body>
 
+    @if($users)
+
 <div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">All Users</div>
+               
+
+        <div class="col-12">
+             <div class="card">
+                <div class="card-header">
+                <h3 class="card-title">All Users</h3>
+                <div class="card-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                    <div class="input-group-append">
+                    <button type="submit" class="btn btn-default">
+                    <i class="fas fa-search"></i>
+                    </button>
+                    </div>
+                </div>
+                </div>
+                </div>
                 
+                <div class="card-body table-responsive p-0" style="height: 300px;">
+                <table class="table table-head-fixed text-nowrap">
+                <thead>
+                <tr>
+                <th>ID</th>
+                <th>User</th>
+                <th>Date Registered</th>
+                <th>Phone</th>
+                <th>Photo</th>
+                </tr>
+                </thead>
+                <tbody>
+                    @foreach ($users as $user )
+                <tr>
+                <td>{{$user->id}}</td>
+                <td>{{$user->name}}</td>
+                <td>{{$user->email}}</td>
+                <td>{{$user->phone}}</td>
+                <td><img src="{{ asset('storage/images/' . $user->picture) }}" alt="User Picture" class="rounded-circle" height="100" width="100"></td>
+               
+                <td></td>
+                </tr>
+                    @endforeach 
+                </tbody>
+                </table>
+                </div>
+                
+                </div>
+                
+                </div>
 
-<!-- Admin Create User Form -->
-
-</div>
-</div>
-</div>
-</div>
-</div>
+</div>   
+               
+@endif
 
 </body>
-<!--<script>-->
-    
-    
-<!--    $(document).ready(function() {-->
-<!--        generateUniqueCode();-->
-<!--    });-->
-
-<!--    function generateUniqueCode() {-->
-        
-<!--        $('#code').val(uniqueCode);-->
-<!--    }-->
-
-<!--    function generateRandomCode(length) {-->
-<!--        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';-->
-<!--        var result = '';-->
-<!--        var charactersLength = characters.length;-->
-<!--        for (var i = 0; i < length; i++) {-->
-<!--            result += characters.charAt(Math.floor(Math.random() * charactersLength));-->
-<!--        }-->
-<!--        return result;-->
-<!--    }-->
-<!--</script>-->
-
 </html>
