@@ -49,7 +49,7 @@
                 <td>{{$user->phone}}</td>
                 <td><img src="{{ asset('storage/images/' . $user->picture) }}" alt="User Picture" class="rounded-circle" height="100" width="100"></td>
                
-                <td></td>
+                <td><a href="">View User</a></td>
                 </tr>
                     @endforeach 
                 </tbody>
