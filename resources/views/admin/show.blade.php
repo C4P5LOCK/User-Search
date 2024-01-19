@@ -1,1 +1,1 @@
-show user here
+show user here {{$user->name}}

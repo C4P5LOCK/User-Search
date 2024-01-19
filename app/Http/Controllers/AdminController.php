@@ -15,6 +15,13 @@ public function AllUsers(){
     ]);
 }
 
+public function show(UserInfo $user){
+    //$user = Userinfo::find($id);
+        return view('admin.show',[
+            'user' => $user
+        ]);
+}
+
 public function createUserForm()
 {
     return view('admin.create');
