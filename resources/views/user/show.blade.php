@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>User Information</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    
-    <style>
-    
-</style>
-</head>
-<body>
+@extends('layouts.navbar')
 
-
+@section('content')
 <div class="container mt-5">
     <h2>Approval Details</h2>
     <hr>
@@ -100,5 +89,4 @@
     <p><strong>Status:</strong> <span style="color: red;">Ready to be Printed</span></p>
 
 </div>
-</body>
-</html>
+@endsection
