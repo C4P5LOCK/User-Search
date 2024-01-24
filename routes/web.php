@@ -20,6 +20,11 @@ Route::get('/', function () {
 
  Route::get('/', [UserInfoController::class, 'index']);
  Route::post('/search', [UserInfoController::class, 'search']);
+ Route::get('/verify', [UserInfoController::class, 'verify'])->name('verify');
+
+//  Route::get('/login', function(){
+// return view ('')
+//  })
 
 
 Auth::routes();
