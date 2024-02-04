@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\UserInfoController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PdfController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +22,7 @@ Route::get('/', function () {
  Route::get('/', [UserInfoController::class, 'index']);
  Route::post('/search', [UserInfoController::class, 'search']);
  Route::get('/verify', [UserInfoController::class, 'verify'])->name('verify');
-
+ Route::get('/print', [PdfController::class, 'print'])->name('print');
 //  Route::get('/login', function(){
 // return view ('')
 //  })
