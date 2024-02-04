@@ -19,7 +19,7 @@
            </div>
 
         <div class ="col-md-6">
-            <img src="/public/bgg.jpg" height="200">
+            <img src={{asset('storage/images/bgg.jpg')}} height="425" width="780">
                 </div>
 
     </div>

@@ -89,4 +89,14 @@
     <p><strong>Status:</strong> <span style="color: red;">Ready to be Printed</span></p>
 
 </div>
+<div class="col-12 .justify-content-center">
+    <a href="invoice-print.html" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
+    <button type="button" class="btn btn-success "><i class="far fa-credit-card"></i> Submit
+    Payment
+    </button>
+    <button type="button" class="btn btn-primary " style="margin-right: 5px;">
+    <i class="fas fa-download"></i> Generate PDF
+    </button>
+</div>
+<hr>
 @endsection
