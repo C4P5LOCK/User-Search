@@ -91,10 +91,16 @@
 </div>
 <div class="col-12 justify-content-center">
     <div class="text-center">
-    <a href="/print" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
+
+        <a href="javascript:window.print();">Print Page</a>  <!---Whole page print-->
+
+       
+    <a href=""  target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
     <button type="button" class="btn btn-success "><i class="far fa-credit-card"></i> Submit Payment</button>
     <button type="button" class="btn btn-primary " style="margin-right: 5px;"><i class="fas fa-download"></i> Generate PDF</button>
 </div>
 </div>
 <hr>
 @endsection
+
+
