@@ -97,7 +97,8 @@
        
     <a href=""  target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
     <button type="button" class="btn btn-success "><i class="far fa-credit-card"></i> Submit Payment</button>
-    <button type="button" class="btn btn-primary " style="margin-right: 5px;"><i class="fas fa-download"></i> Generate PDF</button>
+    <button type="button" href="{{route('pdf')}}"class="btn btn-primary " style="margin-right: 5px;"><i class="fas fa-download"></i> Generate PDF</button>
+    <a href="{{route('pdf')}}" class="btn btn-info" role="button">Gen PDF</a>
 </div>
 </div>
 <hr>

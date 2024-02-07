@@ -22,7 +22,7 @@ Route::get('/', function () {
  Route::get('/', [UserInfoController::class, 'index']);
  Route::post('/search', [UserInfoController::class, 'search']);
  Route::get('/verify', [UserInfoController::class, 'verify'])->name('verify');
- Route::get('/print', [PdfController::class, 'print'])->name('print');
+ Route::get('/pdf', [PdfController::class, 'print'])->name('pdf');
 //  Route::get('/login', function(){
 // return view ('')
 //  })
