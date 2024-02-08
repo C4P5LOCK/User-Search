@@ -13,7 +13,7 @@
     <div class="card card-primary card-outline">
     <div class="card-body box-profile">
     <div class="text-center">
-    <img class="profile-user-img img-fluid img-circle" src="../../dist/img/user4-128x128.jpg" alt="User profile picture">
+    <img class="profile-user-img img-fluid img-circle" src="{{asset('storage/images/' . $user->picture)}}" alt="User profile picture">
     </div>
     <h3 class="profile-username text-center">{{$user->name}}</h3>
     <p class="text-muted text-center">Software Engineer</p>
@@ -76,6 +76,8 @@
     
     </div>
     </section>
+    &nbsp;
+    <center><a href="{{route('pdf')}}" class="btn btn-info" role="button">Edit User Info</a></center>
     </div>
 </body>
 @endsection
