@@ -37,6 +37,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('/admin/store', [AdminController::class, 'storeUser']);
     Route::get('/admin/users', [AdminController::class, 'AllUsers'])->name('viewusers');
     Route::get('/admin/show/{user}', [AdminController::class, 'show'])->name('show');
+    Route::get('/admin/edit',[AdminController::class, 'edit'])->name('edit');
 
     // Route::get('/admin/create', 'AdminController@createUserForm');
     // Route::post('/admin/store', 'AdminController@storeUser');

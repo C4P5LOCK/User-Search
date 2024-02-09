@@ -121,4 +121,10 @@ if (UserInfo::where('email', $request['email'])->exists()) {
     return redirect('/admin/create')->with(['success' => 'User Succesfully Created']);
 }
 
+public function edit(UserInfo $user){
+    $userinfo = UserInfo::findOrFail($user);
+    return view ('admin.edit', ['userinfo' => $userinfo]);
+}
+
+
 }
