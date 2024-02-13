@@ -77,7 +77,7 @@
     </div>
     </section>
     &nbsp;
-    <center><a href="{{route('edit')}}" class="btn btn-info" role="button">Edit User Info</a></center>
+    <center><a href="{{route('edituser', $user)}}" class="btn btn-info" role="button">Edit User Info</a></center>
     </div>
 </body>
 @endsection

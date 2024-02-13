@@ -20,41 +20,41 @@
     </div>
 @endif
 <!-- Admin Create User Form -->
-<form action="" method="post" enctype="multipart/form-data">
+<form action="{{route('updateuser', $user)}}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="row">
         <!-- First Column -->
         <div class="col-md-6">
             <div class="form-group">
                 <label for="name">Name:</label>
-                <input type="text" name="name" id="name" value="{{ $userinfo->name }}" class="form-control" required>
+                <input type="text" name="name" id="name" value="{{ $user->name }}" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" name="email" id="email" class="form-control" required>
+                <input type="email" name="email" id="email" value="{{ $user->email }}" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="code">Code:</label>
-                <input type="text" name="code" id="code" class="form-control" required>
+                <input type="text" name="code" id="code" value="{{ $user->code }}" class="form-control" required>
                 
             </div>
             <div class="form-group">
                 <label for="passport_number">Passport Number:</label>
-                <input type="text" name="passportnumber" id="passport_number" class="form-control" required>
+                <input type="text" name="passportnumber" id="passport_number" value="{{ $user->passportnumber }}" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="job_allocation">Job Allocation:</label>
-                <input type="text" name="joballocation" id="job_allocation" class="form-control" required>
+                <input type="text" name="joballocation" id="job_allocation" value="{{ $user->joballocation }}" class="form-control" required>
             </div>
             
             <div class="mb-3">
             <label for="application_number">Application Number:</label>
-            <input type="text" name="application_number" id="application_number" class="form-control">
+            <input type="text" name="application_number" id="application_number" value="{{ $user->application_number }}" class="form-control">
         </div>
 
         <div class="mb-3">
             <label for="sex">Sex:</label>
-            <select name="sex" id="sex" class="form-control">
+            <select name="sex" id="sex" value="{{ $user->sex }}" class="form-control">
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
@@ -62,22 +62,22 @@
         
         <div class="mb-3">
             <label for="relationship">Relationship:</label>
-            <input type="text" name="relationship" id="relationship" class="form-control">
+            <input type="text" name="relationship" id="relationship" value="{{ $user->relationship }}" class="form-control">
         </div>
 
         <div class="mb-3">
             <label for="visa_no">Visa No.:</label>
-            <input type="text" name="visa_no" id="visa_no" class="form-control">
+            <input type="text" name="visa_no" id="visa_no" value="{{ $user->visa_no }}" class="form-control">
         </div>
 
         <div class="mb-3">
             <label for="name_arabic">Name in Arabic:</label>
-            <input type="text" name="name_arabic" id="name_arabic" class="form-control">
+            <input type="text" name="name_arabic" id="name_arabic" value="{{ $user->name_arabic}}" class="form-control">
         </div>
         
         <div class="mb-3">
             <label for="passport_details">Passport Details:</label>
-            <input type="text" name="passport_details" id="passport_details" class="form-control">
+            <input type="text" name="passport_details" id="passport_details" value="{{ $user->passport_details}}" class="form-control">
         </div>
         
          <!-- Picture Upload -->
@@ -93,56 +93,56 @@
             
             <div class="form-group">
                 <label for="nationality">Nationality:</label>
-                <input type="text" name="nationality" id="nationality" class="form-control" required>
+                <input type="text" name="nationality" id="nationality" value="{{ $user->nationality }}" class="form-control" required>
             </div>
             
             <div class="form-group">
                 <label for="location">Location:</label>
-                <input type="text" name="location" id="location" class="form-control" required>
+                <input type="text" name="location" id="location" value="{{ $user->location }}" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="visa_type">Visa Type:</label>
-                <input type="text" name="visatype" id="visa_type" class="form-control" required>
+                <input type="text" name="visatype" id="visa_type" value="{{ $user->visatype }}" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="issue_date">Issue Date:</label>
-                <input type="date" name="issuedate" id="issue_date" class="form-control" required>
+                <input type="date" name="issuedate" id="issue_date" value="{{ $user->issuedate }}" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="expiry_date">Expiry Date:</label>
-                <input type="date" name="expdate" id="expiry_date" class="form-control" required>
+                <input type="date" name="expdate" id="expdate" value="{{ $user->expdate }}" class="form-control" required>
             </div>
             
             <div class="mb-3">
             <label for="visa_status">Visa Status:</label>
-            <input type="text" name="visa_status" id="visa_status" class="form-control">
+            <input type="text" name="visa_status" id="visa_status" value="{{ $user->visa_status }}" class="form-control">
         </div>
 
         <div class="mb-3">
             <label for="profession">Profession:</label>
-            <input type="text" name="profession" id="profession" class="form-control">
+            <input type="text" name="profession" id="profession" value="{{ $user->profession }}" class="form-control">
         </div>
         
         <div class="mb-3">
             <label for="date_of_birth">Date of Birth:</label>
-            <input type="date" name="date_of_birth" id="date_of_birth" class="form-control">
+            <input type="date" name="date_of_birth" id="date_of_birth" value="{{ $user->date_of_birth }}" class="form-control">
         </div>
 
         <div class="mb-3">
             <label for="phone">Phone:</label>
-            <input type="tel" name="phone" id="phone" class="form-control">
+            <input type="tel" name="phone" id="phone" value="{{ $user->phone }}" class="form-control">
         </div>
 
         <div class="mb-3">
             <label for="place_of_birth">Place of Birth:</label>
-            <input type="text" name="place_of_birth" id="place_of_birth" class="form-control">
+            <input type="text" name="place_of_birth" id="place_of_birth" value="{{ $user->place_of_birth }}" class="form-control">
         </div>
         
         
 
         <div class="mb-3">
             <label for="passport_expiry_date">Passport Expiry Date:</label>
-            <input type="date" name="passport_expiry_date" id="passport_expiry_date" class="form-control">
+            <input type="date" name="passport_expiry_date" id="passport_expiry_date" value="{{ $user->passport_expiry_date }}" class="form-control">
         </div>
 
        
@@ -153,7 +153,7 @@
     </div>
     <hr>
     <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create User</button>
+        <button type="submit" class="btn btn-primary">Update User Info</button>
     </div>
 </form>
 </div>
