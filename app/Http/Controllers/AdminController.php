@@ -127,96 +127,101 @@ public function edit(UserInfo $user){
     return view ('admin.edit', ['user' => $user]);
 }
 
-public function update(UserInfo $user){
-     // Validate and store user information
-     $user = UserInfo::where($user);
-     $user->name = $user->input('name');
-     // $user->email = $request->input('email');
-     $user->passportnumber = $request->input('passportnumber');
-     $user->joballocation = $request->input('joballocation');
-     $user->location = $request->input('location');
-     $user->visatype = $request->input('visatype');
-     $user->nationality = $request->input('nationality');
-     $user->issuedate = $request->input('issuedate');
-     $user->application_number = $request->input('application_number');
-     $user->sex = $request->input('sex');
+public function update(Request $request ,$id){
+    $updateuser = UserInfo::findOrFail($id);
+    // dd($updateuser);
+    $updateuser->name = $request->input('name');
+    // $user->email = $request->input('email');
+    $updateuser->passportnumber = $request->input('passportnumber');
+    $updateuser->joballocation = $request->input('joballocation');
+    $updateuser->location = $request->input('location');
+    $updateuser->visatype = $request->input('visatype');
+    $updateuser->nationality = $request->input('nationality');
+    $updateuser->issuedate = $request->input('issuedate');
+    $updateuser->application_number = $request->input('application_number');
+    $updateuser->sex = $request->input('sex');
+   
+    $updateuser->relationship = $request->input('relationship');
+     $updateuser->visa_no = $request->input('visa_no');
+      $updateuser->name_arabic = $request->input('name_arabic');
+      $updateuser->passport_details = $request->input('passport_details');
+      $updateuser->name_arabic = $request->input('name_arabic');
+      $updateuser->picture = $request->input('picture');
+      $updateuser->profession = $request->input('profession');
+      $updateuser->visatype = $request->input('visatype');
+      $updateuser->issuedate = $request->input('issuedate');
+      $updateuser->visa_status = $request->input('visa_status');
+      $updateuser->date_of_birth = $request->input('date_of_birth');
+      $updateuser->phone = $request->input('phone');
+      $updateuser->passport_expiry_date = $request->input('passport_expiry_date');
+      $updateuser->place_of_birth = $request->input('place_of_birth');
+       $updateuser->expdate = $request->input('expdate');
+     
+
+// if ($request->hasFile('picture')) {
+//         // Get the file name with the extension
+//         $fileNameWithExt = $request->file('picture')->getClientOriginalName();
+
+//         // Get just the file name
+//         $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+
+//         // Get just the extension
+//         $extension = $request->file('picture')->getClientOriginalExtension();
+
+//         // Filename to store (unique name + timestamp)
+//         $fileNameToStore = $fileName . '_' . time() . '.' . $extension;
+
+//         // Store the image in the storage/app/public directory
+//         $path = $request->file('picture')->storeAs('public/images', $fileNameToStore);
+
+//         // Save the image path to the database
+//         $request['picture'] = $fileNameToStore;
+//     }
+
+// Validate and store the user data
+
+    $validatedData = $request->validate([
+        // Validation rules
+        'picture' => 'nullable|image|max:2048', // Max 2MB
+    ]);
+
+    if ($request->hasFile('picture')) {
+        $fileNameWithExt = $request->file('picture')->getClientOriginalName();
+        $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        $extension = $request->file('picture')->getClientOriginalExtension();
+        $fileNameToStore = $fileName . '_' . time() . '.' . $extension;
+        
+        // Store the image in the public directory
+        $path = $request->file('picture')->storeAs('public/images', $fileNameToStore);
+    } else {
+        $fileNameToStore = 'noimage.jpg'; // Default image or handle as needed
+    }
+
+    // Save the filename to the database
+    $request['picture'] = $fileNameToStore;
     
-     $user->relationship = $request->input('relationship');
-      $user->visa_no = $request->input('visa_no');
-       $user->name_arabic = $request->input('name_arabic');
-       $user->passport_details = $request->input('passport_details');
-       $user->name_arabic = $request->input('name_arabic');
-       $user->picture = $request->input('picture');
-       $user->profession = $request->input('profession');
-       $user->visatype = $request->input('visatype');
-       $user->issuedate = $request->input('issuedate');
-       $user->visa_status = $request->input('visa_status');
-       $user->date_of_birth = $request->input('date_of_birth');
-       $user->phone = $request->input('phone');
-       $user->passport_expiry_date = $request->input('passport_expiry_date');
-       $user->place_of_birth = $request->input('place_of_birth');
-        $user->expdate = $request->input('expdate');
-      
- 
- // if ($request->hasFile('picture')) {
- //         // Get the file name with the extension
- //         $fileNameWithExt = $request->file('picture')->getClientOriginalName();
- 
- //         // Get just the file name
- //         $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
- 
- //         // Get just the extension
- //         $extension = $request->file('picture')->getClientOriginalExtension();
- 
- //         // Filename to store (unique name + timestamp)
- //         $fileNameToStore = $fileName . '_' . time() . '.' . $extension;
- 
- //         // Store the image in the storage/app/public directory
- //         $path = $request->file('picture')->storeAs('public/images', $fileNameToStore);
- 
- //         // Save the image path to the database
- //         $request['picture'] = $fileNameToStore;
- //     }
- 
- // Validate and store the user data
- 
-     $validatedData = $request->validate([
-         // Validation rules
-         'picture' => 'nullable|image|max:2048', // Max 2MB
-     ]);
- 
-     if ($request->hasFile('picture')) {
-         $fileNameWithExt = $request->file('picture')->getClientOriginalName();
-         $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
-         $extension = $request->file('picture')->getClientOriginalExtension();
-         $fileNameToStore = $fileName . '_' . time() . '.' . $extension;
-         
-         // Store the image in the public directory
-         $path = $request->file('picture')->storeAs('public/images', $fileNameToStore);
-     } else {
-         $fileNameToStore = 'noimage.jpg'; // Default image or handle as needed
-     }
- 
-     // Save the filename to the database
-     $request['picture'] = $fileNameToStore;
-     
-     $user->picture = $request->input('picture');
-     
-//  if (UserInfo::where('email', $request['email'])->exists()) {
-//          return redirect()->back()->with('error', 'Email already exists.'); // Redirect back with an error message
-//      }
-     
-      $user->email = $request->input('email');
-     // Generate a unique code
-     $uniqueCode = Str::random(10); // Adjust the length as needed
-     while (UserInfo::where('code', $uniqueCode)->exists()) {
-         $uniqueCode = Str::random(10); // Regenerate if the code already exists
-     }
-     
-    // $user->code = $uniqueCode; // Assign the unique code
-     $user->code = $request->input('code'); // Generate unique code as needed
-     dd('done');
-     //$user->save();
+    $updateuser->picture = $request->input('picture');
+    
+if (UserInfo::where('email', $request['email'])->exists()) {
+        return redirect()->back()->with('error', 'Email already exists.'); // Redirect back with an error message
+    }
+    
+     $user->email = $request->input('email');
+    // Generate a unique code
+    $uniqueCode = Str::random(10); // Adjust the length as needed
+    while (UserInfo::where('code', $uniqueCode)->exists()) {
+        $uniqueCode = Str::random(10); // Regenerate if the code already exists
+    }
+    
+   // $user->code = $uniqueCode; // Assign the unique code
+    $updateuser->code = $request->input('code'); // Generate unique code as needed
+
+   
+    $updateuser->save();
+    dd($updateuser);
+    //return redirect('/admin/edit')->with(['success' => 'User Info Succesfully Updated']);
+
  
 }
+
 }

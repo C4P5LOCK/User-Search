@@ -20,8 +20,9 @@
     </div>
 @endif
 <!-- Admin Create User Form -->
-<form action="{{route('updateuser', $user)}}" method="post" enctype="multipart/form-data">
+<form action="{{route('updateuser', $user->id)}}" method="post" enctype="multipart/form-data">
     @csrf
+    @method('PUT')
     <div class="row">
         <!-- First Column -->
         <div class="col-md-6">
@@ -83,7 +84,8 @@
          <!-- Picture Upload -->
         <div class="mb-6">
             <label for="picture">Picture:</label>
-            <input type="file" name="picture" id="picture" class="form-control-file">
+            <img class="profile-user-img img-fluid img-circle" src="{{asset('storage/images/' . $user->picture)}}" height="200px" width="200px" alt="User profile picture">
+            <input type="text" name="picture" id="picture" value="{{$user->picture}} " class="form-control-file" readonly>
         </div>
         
     </div>
