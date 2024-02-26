@@ -158,7 +158,7 @@ public function update(Request $request ,$id){
        $updateuser->expdate = $request->input('expdate');
      
 
-// if ($request->hasFile('picture')) {
+// iff ($request->hasFile('picture')) {
 //         // Get the file name with the extension
 //         $fileNameWithExt = $request->file('picture')->getClientOriginalName();
 
